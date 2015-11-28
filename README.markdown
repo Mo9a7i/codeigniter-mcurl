@@ -15,8 +15,10 @@ Move mcurl.php to your libraries folder. To view the examples in your applicatio
 	// add_call( KEY, METHOD, URL, array of PARAMS, array of CURL_OPTS )
 	$this->mcurl->add_call("call1","get","http://google.com");
 	$this->mcurl->add_call("call2","post","http://twitter.com");
-	$this->mcurl->add_call("call3","get","http://google.com",array("q"=>"codeigniter"));
-	$this->mcurl->add_call("call4","get","https://facebook.com",array(),array(CURLOPT_SSL_VERIFYPEER => FALSE));
+	$this->mcurl->add_call("call3","put","http://twitter.com");
+	$this->mcurl->add_call("call4","delete","http://twitter.com");
+	$this->mcurl->add_call("call5","get","http://google.com",array("q"=>"codeigniter"));
+	$this->mcurl->add_call("call6","get","https://facebook.com",array(),array(CURLOPT_SSL_VERIFYPEER => FALSE));
 	
 	// execute the calls
 	$responses = $this->mcurl->execute();

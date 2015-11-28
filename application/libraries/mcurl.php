@@ -32,6 +32,8 @@ THE SOFTWARE.
  * @category		Libraries
  * @author			Chad Hutchins
  * @link			http://github.com/chadhutchins/codeigniter-mcurl
+ * @forkedBy		Mohannad F. Otaibi
+ * @fork			https://github.com/Mo9a7i/codeigniter-mcurl
  */
  
 class Mcurl {
@@ -105,6 +107,18 @@ class Mcurl {
 			case "POST":
 				curl_setopt($this->calls[$key]["curl"], CURLOPT_URL, $url);
 				curl_setopt($this->calls[$key]["curl"], CURLOPT_POST, TRUE);
+				curl_setopt($this->calls[$key]["curl"], CURLOPT_POSTFIELDS, $params);
+				break;
+
+			case "PUT":
+				curl_setopt($this->calls[$key]["curl"], CURLOPT_URL, $url);
+				curl_setopt($this->calls[$key]["curl"], CURLOPT_CUSTOMREQUEST, $method);
+				curl_setopt($this->calls[$key]["curl"], CURLOPT_POSTFIELDS, $params);
+				break;
+
+			case "DELETE":
+				curl_setopt($this->calls[$key]["curl"], CURLOPT_URL, $url);
+				curl_setopt($this->calls[$key]["curl"], CURLOPT_CUSTOMREQUEST, $method);
 				curl_setopt($this->calls[$key]["curl"], CURLOPT_POSTFIELDS, $params);
 				break;
 
